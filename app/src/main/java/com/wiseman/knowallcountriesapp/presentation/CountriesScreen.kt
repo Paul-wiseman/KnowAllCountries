@@ -1,9 +1,7 @@
 package com.wiseman.knowallcountriesapp.presentation
 
-import android.widget.Space
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,7 +13,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
@@ -24,7 +21,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -35,12 +31,13 @@ import com.wiseman.knowallcountriesapp.presentation.state.CountriesState
 
 @Composable
 fun CountriesScreen(
+    modifier: Modifier = Modifier,
     state: CountriesState,
     onSelectCountry: (code: String) -> Unit,
     onDismissCountryDialog: () -> Unit
 ) {
     Box(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
 
     ) {
@@ -115,14 +112,14 @@ fun CountryDialog(
                 )
             }
             Spacer(modifier = Modifier.height(16.dp))
-                Text(text = "Continent " + country.continent)
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(text = "currency " + country.currency)
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(text = "Capital" + country.capital)
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(text = "Language(s) $joinedLanguages")
-            }
+            Text(text = "Continent " + country.continent)
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(text = "currency " + country.currency)
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(text = "Capital" + country.capital)
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(text = "Language(s) $joinedLanguages")
+        }
 
     }
 }
